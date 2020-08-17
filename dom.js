@@ -1,4 +1,13 @@
+/* ********************************
+* Video 1
 // Examine Document object
+// Selectors
+// *        getElementById() - returns and Element object  matching id passed in
+// *        getElementsByClassName() - returns an array like object of all children with given class name
+// *        getElementsByTagName() - returns a list of elements with the given tag name.  The complete document is search, including the root node.
+// *        querySelector() - returns first element with provided selector.  Prefis with # for a id, or a '.' for a class name.
+// *        querySelectorAll() - similar to querySelector but returns  a NodeList of all elements matching selector.
+**************************************/
 
 //console.dir(document);
 // console.log(document.domain);
@@ -74,13 +83,39 @@
 
 // querySelectorAll
 
-let titles = document.querySelectorAll('.title');
-console.log(titles);
-titles[0].textContent = 'Hello';
-let odd = document.querySelectorAll('li:nth-child(odd)');
-let even = document.querySelectorAll('li:nth-child(even)');
+// let titles = document.querySelectorAll('.title');
+// console.log(titles);
+// titles[0].textContent = 'Hello';
+// let odd = document.querySelectorAll('li:nth-child(odd)');
+// let even = document.querySelectorAll('li:nth-child(even)');
 
-for (let i = 0; i < odd.length; i++) {
-    odd[i].style.backgroundColor = '#f4f4f4';
-    even[i].style.backgroundColor = '#ccc';
-}
+// for (let i = 0; i < odd.length; i++) {
+//     odd[i].style.backgroundColor = '#f4f4f4';
+//     even[i].style.backgroundColor = '#ccc';
+// }
+
+/**************************
+* Video 2: moving around and traversing the DOM
+*
+*  Parents
+*         .parentNode  - returns the parentNode of this current node (read only property) or null
+*         .parentElement - returns the DOM nodes parent element of current element (read only) or null
+* Children
+*         .childNodes
+*         .children
+*         .firstChild
+*         .firstElementChild
+*         .lastChild & .lastElementChild
+* Siblings
+*         .nextSibling
+*         .nextElementSibling
+*         .previousSibling
+*         .previousElementSibling
+* Create Elements
+*         .createElement()
+*         .createTextNode()
+*         .appendChild()
+* Insert Created Elements Into the DOM
+*         .insertBefore()
+****************************/
+
