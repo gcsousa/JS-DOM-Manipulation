@@ -119,3 +119,86 @@
 *         .insertBefore()
 ****************************/
 
+let itemList = document.querySelector('#items');
+// // parentNode property
+// console.log(itemList.parentNode);   // prints line 20 of html file which is the div with id of main
+// itemList.parentNode.style.backgroundColor = '#f4f4f4'; // change background color of "main" to light grey 
+
+// // you can chain .parentNode(s) together to climb the tree
+// console.log(itemList.parentNode.parentNode);    // returns line 19 from HTML file, the div with class "container"
+
+// parentElement is very similar to parentNode and in most cases can be used interchangably with parentNode
+// console.log(itemList.parentElement);  // returns line 20 of HTML file.  Note:  this is the same object as .parentNode above.
+// itemList.parentElement.style.backgroundColor = '#f4f4f4'; // same behavior as parentNode
+// console.log(itemList.parentElement.parentElement);  // again, same as parentNode, can be chained
+
+// childNodes
+//console.log(itemList.childNodes);   // returns a node list, in this case the list of li elements
+// Note:  childNodes returns a text element between each actual li element.  This represents the line breaks in the source HTML file.  For this reason its recommended to use .children which should only grab the li elements themselves.
+// NodeList(9) [text, li.list-group-item, text, li.list-group-item, text, li.list-group-item, text, li.list-group-item, text]
+// 0: text
+// 1: li.list-group-item
+// 2: text
+// 3: li.list-group-item
+// 4: text
+// 5: li.list-group-item
+// 6: text
+// 7: li.list-group-item
+// 8: text
+// length: 9
+// __proto__: NodeList
+
+//console.log(itemList.children); // returns an HTMLCollection which is slightly different from a NodeList but this is much cleaner than the .childNodes property
+// HTMLCollection(4) [li.list-group-item, li.list-group-item, li.list-group-item, li.list-group-item]
+// 0: li.list-group-item
+// 1: li.list-group-item
+// 2: li.list-group-item
+// 3: li.list-group-item
+// length: 4
+// __proto__: HTMLCollection
+//console.log(itemList.children[1]);
+//itemList.children[1].style.backgroundColor = 'yellow';  // you can use .children as a select to change the dom // results in : <li class="list-group-item" style="background-color: yellow;">Item 2</li>
+
+// firstChild
+//console.log(itemList.firstChild); // also returns the text elements which are the line breaks again, use firstElementChild instead
+// firstElementChild
+//console.log(itemList.firstElementChild);  // returns:  <li class="list-group-item">Item 1</li> as expected.
+//itemList.firstElementChild.textContent = "Changed using firstElementChild selector";
+
+// lastChild - similar to first child my return text representing line break.  use lastElementChild instead
+//console.log(itemList.lastChild);    // returns: #text   : use lastElementChild instead
+
+// lastElementChild
+//console.log(itemList.lastElementChild);  // returns last li item which is what you would expect.
+// returns:  <li class="list-group-item">Item 4</li>
+
+//itemList.lastElementChild.textContent = "Changed using lastElementChild selector";
+
+// Siblings
+// nextSibling and nextElementSibling
+// console.log(itemList.nextSibling);  // returns "#text" ie linefeeds in HTML doc
+// console.log(itemList.nextElementSibling);   // returns null because there is no next object after <ul>
+
+// previousSibling and previousElementSibling  (Don't use previousSibling because of the linefeed issue unless you want that behavior)
+// console.log(itemList.previousSibling);  // returns "#text" ie linefeeds in HTML doc
+// console.log(itemList.previousElementSibling);  // returns <h2 class="title">Items</h2> : as expected
+// itemList.previousElementSibling.style.color = 'green'; // changes text color of h2 to green
+
+// Creating DOM elements
+// createElement
+// create a div
+let newDiv = document.createElement('div');
+newDiv.className = 'hello';
+newDiv.id = 'hello1';
+newDiv.setAttribute('title', 'Hello Div');
+// create text node
+let newDivText = document.createTextNode('Hello World');
+// add text to div
+newDiv.appendChild(newDivText);
+// add div to DOM
+let container = document.querySelector('header .container');
+let h1 = document.querySelector('header h1');
+
+console.log(newDiv);
+
+container.insertBefore(newDiv, h1);
